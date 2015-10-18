@@ -1,5 +1,5 @@
 var should = require('chai').should(),
-    maths = require('../maths');
+    maths = require('../index');
 
 describe('#correct', function() {
   it('verifies 1 + 1 = 2', function() {
