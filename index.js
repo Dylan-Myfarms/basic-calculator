@@ -52,12 +52,15 @@ var _slope = exports.slope = function(a, b) {
 	return (b[1] - a[1])/(b[0] - a[0]);
 };
 
-var _mean = exports.mean = function(a) {
+var _mean = exports.mean = function(a, n) {
+	if (typeof n != 'number') {
+		n = a.length;
+	}
 	// add all values
 	return a.reduce(function (c, d) {
 		return c + d
 	// divide by number of values
-	}) / a.length;
+	}) / n;
 }
 
 var _mean2 = exports.mean2 = function(a) {
@@ -121,9 +124,9 @@ var _variance = exports.variance = function(a, type) {
 		array[index] = _sqr(_sub(elem, m));
 	});
 
-	if (type == 'population') {
+	if (type == 'standard') {
 		// get the new mean
-		return _mean2(a);	
+		return _mean(a, a.length - 1);	
 	}
 
 	return _mean(a);

@@ -71,31 +71,31 @@ describe('#correct', function() {
     var a = 6.49;
     maths.round(a).should.equal(6);
   });
-  it('verifies population standard deviation of [9, 2, 5, 4, 12, 7, 8, 11, 9, 3, 7, 4, 12, 5, 4, 10, 9, 6, 9, 4] = 3.0607876523260447', function() {
+  it('verifies standard deviation of [9, 2, 5, 4, 12, 7, 8, 11, 9, 3, 7, 4, 12, 5, 4, 10, 9, 6, 9, 4] = 3.0607876523260447', function() {
     var a = [9, 2, 5, 4, 12, 7, 8, 11, 9, 3, 7, 4, 12, 5, 4, 10, 9, 6, 9, 4];
-    maths.psdeviation(a).should.equal(3.0607876523260447);
+    maths.sdeviation(a).should.equal(3.0607876523260447);
   });
-  it('verifies standard deviation of [9, 2, 5, 4, 12, 7, 8, 11, 9, 3, 7, 4, 12, 5, 4, 10, 9, 6, 9, 4] = 2.9832867780352594', function() {
+  it('verifies population standard deviation of [9, 2, 5, 4, 12, 7, 8, 11, 9, 3, 7, 4, 12, 5, 4, 10, 9, 6, 9, 4] = 2.9832867780352594', function() {
     var a = [9, 2, 5, 4, 12, 7, 8, 11, 9, 3, 7, 4, 12, 5, 4, 10, 9, 6, 9, 4];
-    maths.sdeviation(a).should.equal(2.9832867780352594);
+    maths.psdeviation(a).should.equal(2.9832867780352594);
   });
-  it('verifies psdeviation to precision 5 = 3.06079', function() {
+  it('verifies sdeviation to precision 5 = 3.06079', function() {
     var a = [9, 2, 5, 4, 12, 7, 8, 11, 9, 3, 7, 4, 12, 5, 4, 10, 9, 6, 9, 4];
-    var psd = maths.psdeviation(a);
+    var psd = maths.sdeviation(a);
     maths.roundTo(psd, 5).should.equal(3.06079);
   });
-  it('verifies sdeviation to precision 5 = 2.98329', function() {
+  it('verifies psdeviation to precision 5 = 2.98329', function() {
     var a = [9, 2, 5, 4, 12, 7, 8, 11, 9, 3, 7, 4, 12, 5, 4, 10, 9, 6, 9, 4];
-    var sd = maths.sdeviation(a);
+    var sd = maths.psdeviation(a);
     maths.roundTo(sd, 5).should.equal(2.98329);
   });
-  it('verifies psdeviation variance to precision 4 is 9.3682', function() {
+  it('verifies sdeviation variance to precision 4 is 9.3684', function() {
     var a = [9, 2, 5, 4, 12, 7, 8, 11, 9, 3, 7, 4, 12, 5, 4, 10, 9, 6, 9, 4];
-    var variance = maths.variance(a, "population")
+    var variance = maths.variance(a, "standard")
     maths.roundTo(variance, 4).should.equal(9.3684);
   });
-  it('verifies sdeviation variance is 8.9', function() {
+  it('verifies psdeviation variance is 8.9', function() {
     var a = [9, 2, 5, 4, 12, 7, 8, 11, 9, 3, 7, 4, 12, 5, 4, 10, 9, 6, 9, 4];
-    maths.variance(a, "standard").should.equal(8.9);
+    maths.variance(a, "population").should.equal(8.9);
   });
 });
