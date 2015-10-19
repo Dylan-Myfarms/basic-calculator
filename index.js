@@ -1,5 +1,5 @@
 var _add = exports.add = function(a, b) {
-	return Number(a) + Number(b);
+	return a + b;
 };
 
 var _sub = exports.sub = function(a, b) {
@@ -15,12 +15,14 @@ var _mult = exports.mult = function(a, b) {
 };
 
 var _min = exports.min = function(a) {
+	// return lowest number
 	return a.reduce(function (b,c) {
 		return ( b < c ? b : c);
 	});
 };
 
 var _max = exports.max = function(a) {
+	// return highest number
 	return a.reduce(function (b,c) {
 		return ( b > c ? b : c);
 	});
@@ -34,6 +36,14 @@ var _pow = exports.pow = function(a, b) {
 	return Math.pow(a, b);
 };
 
+var _sqr = exports.sqr = function(a) {
+	return _mult(a,a);
+}
+
+var _sqrt = exports.sqrt = function(a) {
+	return Math.sqrt(a);
+}
+
 var _perc = exports.perc = function(a, b) {
 	return (b/a)*100;
 };
@@ -43,16 +53,27 @@ var _slope = exports.slope = function(a, b) {
 };
 
 var _mean = exports.mean = function(a) {
+	// add all values
 	return a.reduce(function (c, d) {
 		return c + d
+	// divide by number of values
 	}) / a.length;
 }
 
-var _mode = exports.mode = function(a) {
-	counts = {};
-	get_max = [];
+var _mean2 = exports.mean2 = function(a) {
+	// add all values
+	return a.reduce(function (c, d) {
+		return c + d
+	// divide by number of values
+	}) / (a.length - 1);
+}
 
-	for (i = 0; i < a.length; i++) {
+var _mode = exports.mode = function(a) {
+	var counts = {};
+	var get_max = [];
+	var result = [];
+	// count the number of times each value occurs
+	for (var i = 0; i < a.length; i++) {
 		var index = a[i];
 		if (!counts[index]) {
 			counts[index] = 1;
@@ -61,11 +82,10 @@ var _mode = exports.mode = function(a) {
 		}
 		get_max.push(counts[index]);
 	}
-
+	// select the number(s) that occured the most
 	var mode_max = _max(get_max);
 	modes = Object.keys(counts).filter(function(key) {return counts[key] === mode_max});
-	result = [];
-
+	// cast to number
 	for (i = 0; i < modes.length; i++) {
 		result.push(Number(modes[i]));
 	}
@@ -77,14 +97,49 @@ var _med = exports.median = function(a) {
 	var len = a.length;
 
 	if (_mod(len, 2) == 0) {
+		// if there are an even amount of numbers, return the middle two
 		var mid = _div(len, 2);
 		return [a[mid], a[mid - 1]];
 	} else {
+		// return the middle number
 		var num = _div(len - 1, 2);
 		return a[num];
 	}
 }
 
 var _round = exports.round = function(a) {
+	// 0.5 = 1;
+	// 0.49 = 0;
 	return Math.round(a);
-}
+};
+
+var _variance = exports.variance = function(a, type) {
+	// get the mean of values
+	m = _mean(a);
+	// subtract the mean from each value then square it
+	a.forEach(function (elem, index, array) {
+		array[index] = _sqr(_sub(elem, m));
+	});
+
+	if (type == 'population') {
+		// get the new mean
+		return _mean2(a);	
+	}
+
+	return _mean(a);
+};
+
+var _population_standard_deviation = exports.psdeviation = function(a) {
+	// take the square root of variance
+	return _sqrt(_variance(a, 'population'));
+};
+
+var _standard_deviation = exports.sdeviation = function(a) {
+	// take the square root of variance
+	return _sqrt(_variance(a, 'standard'));
+};
+
+var _round_to = exports.roundTo = function(a, b) {
+	// round a to b units after the decimal
+	return Number(a.toFixed(b));
+};
