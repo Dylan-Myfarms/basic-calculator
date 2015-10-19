@@ -9,6 +9,8 @@ A basic calculator.
   - Max (from array)
   - Mode , Median, Mean
   - Simple and Precision rounding
+  - Slope
+  - Calculate Percentages
 
 ## Installation
 `npm install basic-calculator --save`
