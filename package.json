@@ -1,8 +1,8 @@
 {
   "name": "basic-calculator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A basic calculator module.",
-  "main": "index.js",
+  "main": "maths.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter spec"
   },
@@ -13,7 +13,18 @@
   "keywords": [
     "calculator",
     "calc",
-    "module"
+    "math",
+    "min",
+    "max",
+    "standard deviation",
+    "population standard deviation",
+    "sample standard deviation",
+    "mode",
+    "median",
+    "mean",
+    "statistics",
+    "basic",
+    "simple"
   ],
   "author": "Dylan Hamilton <dylan.hamilton@myfarms.com>",
   "license": "ISC",
