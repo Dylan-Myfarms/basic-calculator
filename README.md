@@ -2,18 +2,22 @@
 A basic calculator.
 
 ## Features
-  - Basic math operations (add, subtract, division, multiplication, modulus, square, square root, powers)
-  - Standard deviation
-  - Population standard deviation
+  - Basic Mathematic Operations (add, subtract, division, multiplication, modulus, square, square root, powers)
+  - Standard Deviation
+  - Population Standard Deviation
   - Min (from array)
   - Max (from array)
   - Mode , Median, Mean
   - Simple and Precision rounding
   - Slope
   - Calculate Percentages
+  - Assertion Tests
 
 ## Installation
 `npm install basic-calculator --save`
+
+## Run Tests
+`npm test`
 
 ## Usage
 ```javascript
