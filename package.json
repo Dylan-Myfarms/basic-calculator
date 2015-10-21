@@ -1,6 +1,6 @@
 {
   "name": "basic-calculator",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A basic calculator module.",
   "main": "index.js",
   "scripts": {
@@ -28,6 +28,7 @@
   ],
   "author": "Dylan Hamilton <dylan.hamilton@myfarms.com>",
   "license": "ISC",
+  "url" : "https://github.com/Dylan-Myfarms/basic-calculator/issues",
   "dependencies": {
     "chai": "^3.3.0",
     "mocha": "^2.3.3",
