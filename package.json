@@ -1,8 +1,8 @@
 {
   "name": "basic-calculator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A basic calculator module.",
-  "main": "maths.js",
+  "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter spec"
   },
