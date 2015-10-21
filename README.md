@@ -11,6 +11,7 @@ A basic calculator.
   - Simple and Precision rounding
   - Slope
   - Calculate Percentages
+  - Random number generation between min/max
   - Assertion Tests
 
 ## Installation
