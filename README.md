@@ -120,5 +120,13 @@ var rounded = bc.roundTo(variance, 4);
 bc.variance([9,2,5,4,12,7,8,11,9,3,7,4,12,5,4,10,9,6,9,4], 'population');
 // 8.9
 
+// random number between 10-100
+bc.random(10,100);
+// 55
+
+// random number between defaults (1,10)
+bc.random();
+// 5
+
 
 ```
