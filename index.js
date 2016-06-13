@@ -77,7 +77,7 @@ var _mode = exports.mode = function(a) {
 		}
 		get_max.push(counts[index]);
 	}
-	// select the number(s) that occured the most
+	// select the number(s) that occurred the most
 	var mode_max = _max(get_max);
 	modes = Object.keys(counts).filter(function(key) {return counts[key] === mode_max});
 	// cast to number
